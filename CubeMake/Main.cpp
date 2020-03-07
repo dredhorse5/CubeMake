@@ -4,4 +4,5 @@
 
 void main() {
 	std::cout << "Its working!";
+	std::cout << "Its working!111";
 }
