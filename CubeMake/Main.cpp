@@ -5,5 +5,8 @@
 void main() {
 	std::cout << "Its working!" << std::endl;
 	std::cout << "Its working!111";
+	printf("privet");
+
+
 
 }
