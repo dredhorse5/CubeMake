@@ -22,43 +22,30 @@ void changeSize(int w, int h) {
 }
 
 void renderScene(void) {
-	// очистка буфера цвета и глубины
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	// обнуление трансформации
-	glLoadIdentity();
-	// установка камеры
-	gluLookAt(0.0f, 0.0f, 10.0f,
-		0.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f);
-
-	glRotatef(angle, 0.0f, 1.0f, 0.0f);
 
 	glBegin(GL_TRIANGLES);
-	glVertex3f(-2.0f, -2.0f, 0.0f);
-	glVertex3f(0.0f, 2.0f, 0.0);
-	glVertex3f(2.0f, -2.0f, 0.0);
+	glVertex3f(-0.5, -0.5, 0.0);
+	glVertex3f(0.0, 0.5, 0.0);
+	glVertex3f(0.5, -0.9, 0.0);
 	glEnd();
-
-	angle += 0.1f;
 
 	glutSwapBuffers();
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char* argv[]) {
 
-	// Инициализация GLUT и создание окна
+	// инициализация
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowPosition(100, 100);
 	glutInitWindowSize(400, 400);
-	glutCreateWindow("Урок 3");
+	glutCreateWindow("Урок 1");
 
-	// регистрация
+	// регистрация обратных вызовов
 	glutDisplayFunc(renderScene);
-	glutReshapeFunc(changeSize);
-	glutIdleFunc(renderScene);
 
-	// основной цикл
+	// Основной цикл GLUT
 	glutMainLoop();
 
 	return 1;
